@@ -1,5 +1,7 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { z } from "zod";
+import sharp from "sharp";
+import { db } from "@/db";
 
 const f = createUploadthing();
 
@@ -11,7 +13,40 @@ export const ourFileRouter = {
     })
     .onUploadComplete(async ({ metadata, file }) => {
       const { configId } = metadata.input;
-      return { configId };
+
+      // to get height and width of uploades image first fetch it
+      const res = await fetch(file.url);
+
+      // then turn result into a buffer
+      const buffer = await res.arrayBuffer();
+
+      // then using sharp library get the metadata
+      const imgMetadata = await sharp(buffer).metadata();
+
+      // From that metadata we can get height, width
+      const { width, height } = imgMetadata;
+
+      if (!configId) {
+        const configurtion = await db.configuration.create({
+          data: {
+            imageUrl: file.url,
+            height: height || 500,
+            width: width || 500,
+          },
+        });
+        return { configId: configurtion.id };
+      } else {
+        const updateConfiguration = await db.configuration.update({
+          where: {
+            id: configId,
+          },
+          data: {
+            croppedImageUrl: file.url,
+          },
+        });
+
+        return { configId: updateConfiguration.id };
+      }
     }),
 } satisfies FileRouter;
 
