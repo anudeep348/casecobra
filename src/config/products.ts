@@ -10,3 +10,4 @@ export const PRODUCT_PRICES = {
 } as const;
 
 export const BASE_PRICE = 14_00;
+export const CURRENCY_CONVERTER = 84;

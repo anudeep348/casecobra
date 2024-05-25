@@ -9,8 +9,15 @@ import Confetti from "react-dom-confetti";
 import { Check, ArrowRight } from "lucide-react";
 import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products";
 import { Button } from "@/components/ui/button";
+import { useMutation } from "@tanstack/react-query";
+import { createCheckoutSession } from "./actions";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
+  const router = useRouter();
+  const { toast } = useToast();
+
   const [showConfetti, settShowConfetti] = useState(false);
   useEffect(() => settShowConfetti(true), []);
 
@@ -30,6 +37,26 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   if (finish === "texture") {
     totalPrice += PRODUCT_PRICES.finish.textured;
   }
+
+  const { mutate: createPaymentSession } = useMutation({
+    mutationKey: ["get-checkout-session"],
+    mutationFn: createCheckoutSession,
+    onSuccess: ({ url }) => {
+      if (url) {
+        router.push(url);
+      } else {
+        throw new Error(`Unable to retrevie payment URL.`);
+      }
+    },
+
+    onError: (err) => {
+      toast({
+        title: err.message,
+        description: "There was an error on our end. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
 
   return (
     <>
@@ -124,7 +151,12 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
             </div>
 
             <div className="mt-8 flex justify-end pb-12">
-              <Button className="px-4 sm:px-6 lg:px-8">
+              <Button
+                onClick={() =>
+                  createPaymentSession({ configId: configuration.id })
+                }
+                className="px-4 sm:px-6 lg:px-8"
+              >
                 Check out <ArrowRight className="h-4 w-4 ml-1.5 inline" />
               </Button>
             </div>

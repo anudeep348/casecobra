@@ -1,3 +1,4 @@
+import { CURRENCY_CONVERTER } from "@/config/products";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -8,8 +9,8 @@ export function cn(...inputs: ClassValue[]) {
 export const formatPrice = (price: number) => {
   const formatter = new Intl.NumberFormat("en-us", {
     style: "currency",
-    currency: "USD",
+    currency: "INR",
   });
 
-  return formatter.format(price);
+  return formatter.format(price * CURRENCY_CONVERTER);
 };
