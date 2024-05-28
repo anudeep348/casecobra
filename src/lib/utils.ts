@@ -12,7 +12,7 @@ export const formatPrice = (price: number, convertCurrency?: boolean) => {
     currency: "INR",
   });
 
-  if (!convertCurrency) {
+  if (convertCurrency === false) {
     return formatter.format(price);
   }
   return formatter.format(price * CURRENCY_CONVERTER);
