@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Package } from "lucide-react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const Navbar = async () => {
@@ -27,6 +27,17 @@ const Navbar = async () => {
                   })}
                 >
                   Sign out
+                </Link>
+
+                <Link
+                  href="/myorders"
+                  className={buttonVariants({
+                    size: "sm",
+                    variant: "outline",
+                  })}
+                >
+                  <Package className="mr-1.5 h-5 w-5" />
+                  My Orders
                 </Link>
                 {isAdmin ? (
                   <Link

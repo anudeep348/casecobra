@@ -6,7 +6,6 @@ import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import PhonePreview from "@/components/PhonePreview";
 import { formatPrice } from "@/lib/utils";
-import { CURRENCY_CONVERTER } from "@/config/products";
 
 const ThankYou = () => {
   const searchParams = useSearchParams();
