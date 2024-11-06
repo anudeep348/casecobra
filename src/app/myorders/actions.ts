@@ -7,7 +7,12 @@ export const getOrders = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const orders = db.order.findMany({
+  const orders = await db.order.findMany({
+    orderBy: [
+      {
+        createdAt: "desc",
+      },
+    ],
     where: {
       userId: user?.id,
       isPaid: true,

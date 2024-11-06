@@ -3,7 +3,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 
 export default function Footer() {
   return (
-    <footer className="bg-white h-20 relative">
+    <footer className="bg-white h-34 py-2 lg:h-24 relative">
       <MaxWidthWrapper>
         <div className="border-t border-gray-200"></div>
 
@@ -12,7 +12,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} All rights reserved
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-pretty text-muted-foreground p-2">
               Devloped by{" "}
               <Link
                 className="hover:border-b hover:border-slate-950"

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Recursive } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -8,7 +7,7 @@ import Providers from "@/components/Providers";
 import { constructMetaData } from "@/lib/utils";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const recursive = Recursive({ subsets: ["latin"] });
+const recursive = Recursive({ subsets: ["latin"], display: "swap" });
 
 export const metadata = constructMetaData();
 

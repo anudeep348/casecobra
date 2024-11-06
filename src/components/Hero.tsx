@@ -11,7 +11,12 @@ const Hero = () => {
           <div className="col-span-2 px-6 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
               <div className="absolute w-28 left-0 -top-20 hidden lg:block">
-                <Img src="/snake-1.png" className="w-full" alt="cobra" />
+                <Img
+                  src="/snake-1.png"
+                  className="w-full"
+                  alt="cobra"
+                  width={1000}
+                />
               </div>
               <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl">
                 Your Image on a{" "}
@@ -46,8 +51,8 @@ const Hero = () => {
                   <Img src="/users/user-1.png" alt="user image" />
                   <Img src="/users/user-2.png" alt="user image" />
                   <Img src="/users/user-3.png" alt="user image" />
-                  <Img src="/users/user-4.jpg" alt="user image" />
                   <Img src="/users/user-5.jpg" alt="user image" />
+                  <Img src="/users/user-4.jpg" alt="user image" />
                 </div>
 
                 <div className="flex flex-col justify-between items-center sm:items-start">
@@ -72,6 +77,8 @@ const Hero = () => {
                 className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
                 src="/your-image.png"
                 alt="text png"
+                height={200}
+                width={160}
               />
               <Img
                 className="absolute w-20 -left-6 -bottom-6 select-none"

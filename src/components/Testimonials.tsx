@@ -17,7 +17,12 @@ export default function Testimonials() {
             </span>{" "}
             say
           </h2>
-          <Img className="w-24 order-0 lg:order-2" src="/snake-2.png" alt="" />
+          <Img
+            className=" order-0 lg:order-2"
+            src="/snake-2.png"
+            width={100}
+            alt="cobra"
+          />
         </div>
 
         <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
