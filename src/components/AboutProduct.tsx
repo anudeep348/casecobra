@@ -59,7 +59,7 @@ export default function AboutProduct() {
             print warranty
           </li>
 
-          <div className="flex justify-center">
+          <li className="flex justify-center">
             <Link
               className={buttonVariants({
                 size: "lg",
@@ -69,7 +69,7 @@ export default function AboutProduct() {
             >
               Create your case now <ArrowRight className="h-4 w-4 ml-1.5" />
             </Link>
-          </div>
+          </li>
         </ul>
       </MaxWidthWrapper>
     </section>
