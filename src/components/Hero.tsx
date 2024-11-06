@@ -29,21 +29,19 @@ const Hero = () => {
                 CaseCobra allows you to protect your memories, not just your
                 phone case.
               </p>
-              <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start">
-                <div className="space-y-2">
-                  <li className="flex gap-1.5 items-center text-left">
-                    <Check className="h-5 w-5 shrink-0 text-green-600" />
-                    High-quality, durable material
-                  </li>
-                  <li className="flex gap-1.5 items-center text-left">
-                    <Check className="h-5 w-5 shrink-0 text-green-600" />5 year
-                    print guarantee
-                  </li>
-                  <li className="flex gap-1.5 items-center text-left">
-                    <Check className="h-5 w-5 shrink-0 text-green-600" />
-                    Modren iPhone models supported
-                  </li>
-                </div>
+              <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start justify-start">
+                <li className="flex gap-1.5 items-center text-left justify-start w-full">
+                  <Check className="h-5 w-5 shrink-0 text-green-600" />
+                  High-quality, durable material
+                </li>
+                <li className="flex gap-1.5 items-center text-left justify-start w-full">
+                  <Check className="h-5 w-5 shrink-0 text-green-600" />5 year
+                  print guarantee
+                </li>
+                <li className="flex gap-1.5 items-center text-left justify-start w-full">
+                  <Check className="h-5 w-5 shrink-0 text-green-600" />
+                  Modren iPhone models supported
+                </li>
               </ul>
 
               <div className="mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5">
@@ -51,8 +49,8 @@ const Hero = () => {
                   <Img src="/users/user-1.png" alt="user image" />
                   <Img src="/users/user-2.png" alt="user image" />
                   <Img src="/users/user-3.png" alt="user image" />
-                  <Img src="/users/user-5.jpg" alt="user image" />
                   <Img src="/users/user-4.jpg" alt="user image" />
+                  <Img src="/users/user-6.jpg" alt="user image" />
                 </div>
 
                 <div className="flex flex-col justify-between items-center sm:items-start">

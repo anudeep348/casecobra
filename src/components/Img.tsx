@@ -15,7 +15,7 @@ function Img({ className, src, alt, width, height, ...props }: ImageProps) {
       className={
         className
           ? className
-          : "inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 "
+          : "inline-block h-10 w-10 rounded-full ring-2 ring-slate-100 object-cover"
       }
       src={src}
       alt={alt}
